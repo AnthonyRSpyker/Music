@@ -17,11 +17,9 @@
             <div class="card">
                 <div class="card-image">
                     <img id="jumbotron" src="assets\music-album-covers-wallpaper-preview.jpg">
-                    <h1 id="main-title" class="card-title">Music and Lyrics</h1>
+                    <h1 id="main-title" class="card-title"></h1>
                 </div>
-
             </div>
-
         </div>
     </div>
     </div>
@@ -35,15 +33,58 @@
                 name="action">Submit</i>
             </button>
         </Div>
+          <div class="row">
+              <div class="col s12 m6">
+                  <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                          <span id="artist-name" class="card-title">Artist Name will populate here</span>
+                    <div class="card-action">
+                    <h6 id="show-wiki-history"><a href="#">Artist History</h6></a>
+                    <h6 id="show-all-songs"><a href="#">View Discography</h6></a>
+                    <h6 id="show-all-songs"><a href="#">View Songs</h6></a>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+              <div class="col s12 m6">
+              <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                      <span class="card-title">All albums or all songs will populate here</span>
+                  </div>
+                  <div class="card-action">
+                <a href="#">Link to use in JQ</a>
+                      
+                  </div>
+              </div>
+              </div>
+          </div>
         <Div class="row">
             <div class="input-field col s6">
-                <input placeholder="Search for your favorite song" id="song_search" type="text" class="validate">
+                <input placeholder="Search for song lyrics and view the video!" id="song_search" type="text" class="validate">
                 </input>
             </div>
             <button id="song-search-button" class="btn waves-effect waves-light" type="submit"
                 name="action">Submit</i>
             </button>
         </Div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Lyrics would populate here</span>
+                        <p id="lyrics-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Youtube Video would populate here</span>
+                </div>
+            </div>
+            </div>
+        </div>
+      
     </div>
     <script src="assets\script.js"></script>
 </body>
