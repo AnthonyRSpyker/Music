@@ -1,4 +1,13 @@
-//general class for both buttons
+//added document ready call
+$(document).ready(function () {
+  //hide the elements until they are populated.
+  $('.artist-cards').hide();
+  $('.lyrics-video-cards').hide();
+
+      //For use in the respective click events (This shows the cards that I hid at the beginning)
+    //   $('.artist-cards').hide();
+    //   $('.lyrics-video-cards').hide();
+});
 const button = $(".btn");
 //id's for song and artist inputs
 const artist = $("#artist_search");
@@ -24,6 +33,12 @@ $.ajax({
 .then(function(response){
     console.log(response)
     //specific lyrics request, have to make the lyrics populate somewhere on page.
+
+    var lyrics = response.message.body.lyrics.lyrics_body
+    console.log(lyrics)
+    var 
+})
+
     var songArtist = response.message.body.artist_list[0].artist.artist_name
     console.log(songArtist)
     $("#artist-name").text(songArtist);
