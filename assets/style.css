@@ -1,7 +1,44 @@
-#main-title {
-    color: black;
-    font-weight: bold;
-    font-size: 48px;
+.card-image {
+    margin: -10px -10px -10px -10px
+}
+.artist-info {
+    border: solid red 1px;
+    height: 325px;
+    overflow: auto;
     text-align: center;
+}
+
+.history-discography-songs-populate {
+    border: solid red 1px;
+    height: 325px;
+    overflow: auto;
+}
+.search-1 {
+    border: solid red 1px;
+    margin: -35px 5px 0px 5px;
 
 }
+.search-2 {
+    border: solid red 1px;
+    margin: -18px 5px 0px 5px;
+}
+
+.lyrics-card {
+    border: solid red 1px;
+    height: 325px;
+    overflow: auto;
+}
+
+.video-card {
+    border: solid red 1px;
+    height: 325px;
+    overflow: auto;
+}
+
+#artist-pic {
+   max-width: 150px;
+   max-height: 150px;
+   align-content: center;
+
+}
+
