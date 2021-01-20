@@ -20,6 +20,7 @@ topSearch();
 
 // });
 
+
 //This calls the getArtistDiscography() function when the discography word is pressed
 //  does not populate anything yet. only have the console.log.  will have to set up the
 // functions so they erase what is in the box and repopulate.
@@ -35,41 +36,35 @@ topSearch();
 // function getArtist() {
 //   $("#artist-search-button").on("click", function () {
 
-
-//       var art = artistSearch.val();
-//       console.log(art)
+//   $("#artist-search").val();
 
 
-//       var urlQuery = "https://api.musixmatch.com/ws/1.1/artist.search?format=jsonp&callback=callback&q_artist=" + art + "&apikey=7f6c68b406143881580235194e8517a0"
+//   getArtistDiscography(artist);
+// })
 
-//       $.ajax({
-//           url: urlQuery,
-//           dataType: "jsonp",
-//           method: "GET"
-//       })
-
-//           .then(function (artist) {
-//               console.log(artist);
-//               //specific lyrics request, have to make the lyrics populate somewhere on page.
-//               var songArtist = artist.message.body.artist_list[0].artist.artist_name;
-//               console.log(songArtist);
-//               $("#artist-name").text(songArtist);
-
-//               localStorage.setItem("Artist", art);
-//           })
+//I dont think we need this function any more.  
+// function getArtist() { //dont know if this still needs to be a function, but it populates the Artist Name Header
+//   $("#artist-search-button").on("click", function () {
 
 
-//   })
+//     var art = artistSearch.val();
+//     console.log(art)
+//     $("#artist-name").text(art);
+
+      
+
+
+//    })
 // }
 
-// getArtist();
+getArtist();
 
 //This gets the artists bio.  It populates all the info to the right.
 function getArtistBio(artist){
   
  var art = artistSearch.val();
   var query = "https://theaudiodb.com/api/v1/json/523532/search.php?s=" + art;
-    
+
   $.ajax({
     url: query,
     method: "GET"
@@ -130,19 +125,17 @@ function getLyrics() {
           url: urlQuery,
           dataType: "jsonp",
           method: "GET"
-      })
-
-          .then(function (artist) {
+      }).then(function (artist) {
               console.log(artist);
               //specific lyrics request, have to make the lyrics populate somewhere on page.
               var lyrics = artist.message.body.lyrics.lyrics_body;
               console.log(lyrics);
               $("#lyrics-text").text(lyrics);
 
-          })
+      })
+
 })}
 
-  getLyrics();
 
 function topSearch() {
   //On Search, artist picture shows up and history shows up.
