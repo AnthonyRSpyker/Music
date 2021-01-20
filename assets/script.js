@@ -7,6 +7,7 @@ $(document).ready(function () {
   //id's for song and artist buttons
   const songButton = $('#song-search-button');
   const artistButton = $('#artist-search-button');
+  
   //This put the click event in a function, located line 144. This puts the click event and lets everything load together
   topSearch();
 
@@ -51,7 +52,7 @@ $(document).ready(function () {
   //    })
   // }
 
-  getArtist();
+  // getArtist();
 
   //This gets the artists bio.  It populates all the info to the right.
   function getArtistBio(artist) {
@@ -87,15 +88,30 @@ $(document).ready(function () {
       method: 'GET',
     }).then(function (disco) {
       console.log(disco);
-      //I need help with this
-      //let AlbumPic = .attr('src', disco.album[i].strAlbumThumb);
-      // let albumPicArr = [];
-      // let nameAlbum = disco.album[i].strAlbum;
-      // let nameAlbumArr = [];
-      // let albumYear = disco.album[i].intYearReleased;
-      // let albumYearArr = [];
+      
+      for (let i = 0; i < disco.album.length; i++) {
+        const element = disco.album[i];
+        // console.log(element);
+        let thumb = element.strAlbumThumb;
+        element.strAlbum;
+        element.intYearReleased;
+        // if(element.strAlbumThumb == null) {
+          // set blank image
+        // }
 
-      //this needs a for loop
+        $('.history-discography-songs-populate').append(
+          '<img width="50px" height="50px" src ="' +
+            thumb +
+            '"> <p>' +
+            element.strAlbum +
+            '</p>'
+        );
+      // <img src="htttp://img.jpg">
+
+
+        
+        
+      }
     });
   }
   //
