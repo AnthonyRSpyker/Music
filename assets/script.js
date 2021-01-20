@@ -94,18 +94,15 @@ $(document).ready(function () {
         const element = disco.album[i];
         // console.log(element);
         let thumb = element.strAlbumThumb;
-        element.strAlbum;
-        element.intYearReleased;
+        let albumName = element.strAlbum;
+        let yearRel = element.intYearReleased;
         // if(element.strAlbumThumb == null) {
           // set blank image
         // }
 
         $('.history-discography-songs-populate').append(
-          '<img width="50px" height="50px" src ="' +
-            thumb +
-            '"> <p>' +
-            element.strAlbum +
-            '</p>'
+          '<img width="50px" height="50px" src ="' + thumb + '"> <p>' +
+            albumName + '</p> <p>' + yearRel + '</p>'
         );
       // <img src="htttp://img.jpg">
 
