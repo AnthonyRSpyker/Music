@@ -91,7 +91,8 @@ function getArtistDiscography(artist) {
   })
     .then(function (disco) {
       console.log(disco)
-      var discoString = JSON.stringify(disco);
+     
+     
       // i loop to populate as list??
     });
 
