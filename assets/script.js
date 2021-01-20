@@ -15,13 +15,15 @@ const artistButton = $("#artist-search-button");
 
 //This calls the getArtistBio() function when the History word is pressed
 //  maybe want to change to bio.
+
 $("#show-history").on("click",function(artist){
   
-  $("artist-search").val();
+  $("#artist-search").val();
   
   getArtistBio(artist)
 
 });
+
 
 //This calls the getArtistDiscography() function when the discography word is pressed
 //  does not populate anything yet. only have the console.log.  will have to set up the
@@ -29,7 +31,9 @@ $("#show-history").on("click",function(artist){
 
 $("#show-all-albums").on("click",function(artist){
   
-  $("artist-search").val();
+  
+  $("#artist-search").val();
+  
 
   getArtistDiscography(artist);
 })
@@ -84,6 +88,7 @@ function getArtistBio(artist){
      $(".info-populate").append(bio.artists[0].strBiographyEN)
     console.log(biography);
   });
+  $(".info-populate").empty(); // clears info box
 
 };
 
@@ -99,7 +104,11 @@ function getArtistDiscography(artist){
   })
   .then(function(disco){
       console.log(disco)
+      var discoString= JSON.stringify(disco);
+      // i loop to populate as list??
     });
+
+    $(".info-populate").empty();
 
 
 }
