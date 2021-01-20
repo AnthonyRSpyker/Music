@@ -82,6 +82,7 @@ function getArtistBio(artist) {
 //This will search for the discography.  This doesnt populate anything yet.
 function getArtistDiscography(artist) {
 
+  $(".info-populate").html("");
   var art = artistSearch.val();
   var query = "https://theaudiodb.com/api/v1/json/523532/discography.php?s=" + art
 
