@@ -5,6 +5,7 @@
     border: solid red 1px;
     height: 325px;
     overflow: auto;
+    text-align: center;
 }
 
 .history-discography-songs-populate {
@@ -33,3 +34,11 @@
     height: 325px;
     overflow: auto;
 }
+
+#artist-pic {
+   max-width: 150px;
+   max-height: 150px;
+   align-content: center;
+
+}
+
