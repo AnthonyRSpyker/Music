@@ -1,3 +1,4 @@
+
 // 523532 Code for AD
 $(document).ready(function () {
   //hide the elements until they are populated.
@@ -131,6 +132,8 @@ $(document).ready(function () {
         dataType: 'jsonp',
         method: 'GET',
       }).then(function (artist) {
+
+
         console.log(artist);
         //specific lyrics request, have to make the lyrics populate somewhere on page.
         var lyrics = artist.message.body.lyrics.lyrics_body;

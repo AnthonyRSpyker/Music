@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -36,6 +36,7 @@
         <div class="col s4">
             <div class="artist-info">
                 <h4 id="artist-name">Artist Name</h4>
+
                 <img id="artist-pic"></img>
                 <h6 id="show-all-albums"><a href="#">Discography</h6></a>
                 <!-- Cancelled the songs link. There was nothing in audio db to get all the songs -->
@@ -75,6 +76,61 @@
         </div>
     </div>
     </div>
+
+=======
+                    <h6 id="show-history"><a href="#">History</h6></a>
+                    <h6 id="show-all-albums"><a href="#">Discography</h6></a>
+                    <h6 id="show-all-songs"><a href="#">Songs</h6></a>
+            </div>
+        </div>
+    
+        <div class="col s8">
+                <div class="history-discography-songs-populate">
+                <h6 class="info-populate"></h6>   
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="row search-2">
+        <div class="input-field col s4">
+            <input placeholder="Search for song lyrics and view the video!" id="song_search" type="text"
+                class="validate">
+            </input>
+        </div>
+        <button id="song-search-button" class="btn waves-effect waves-light" type="submit" name="action">Search</i>
+    </div>
+    
+    <div class="row">
+        <div class="col s6">
+            <div class="lyrics-card">
+                <span class="card-title">Lyrics would populate here</span>
+                <p id="lyrics-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, alias atque veniam
+                    ullam minus architecto sequi temporibus explicabo ut aut nihil perspiciatis vitae inventore,
+                    voluptas quo animi laudantium magni delectus! Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Ullam culpa, illum iste recusandae, possimus laudantium mollitia optio doloribus maxime
+                    tempora deserunt. Consequatur quasi in obcaecati assumenda saepe beatae dolorem adipisci! Lorem
+                    ipsum dolor sit amet consectetur, adipisicing elit. Dolore quo ipsa quos nemo perferendis corrupti
+                    similique molestiae ad ab asperiores consequatur in qui nam error cum, eligendi repellat commodi
+                    magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis repellat fugit quam
+                    sapiente, ea, iusto earum delectus, nam molestiae doloribus maxime corrupti itaque sed architecto
+                    natus placeat magnam. Molestiae, deleniti. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Numquam maiores earum aperiam totam amet cupiditate, ipsam ut ipsa aliquam repudiandae? Quaerat
+                    natus sint, voluptas ducimus commodi molestias animi quidem cupiditate? Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit. Cum hic, consectetur harum ratione porro adipisci aperiam officiis
+                    quae? Praesentium aliquid eaque nulla corporis doloremque quas illum pariatur eligendi? Mollitia,
+                    laboriosam.</p>
+            </div>
+        </div>
+
+        <div class="col s6">
+                <div class="video-card">
+                    <span class="card-title">Youtube Video would populate here</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 
     <script src="assets\script.js"></script>
