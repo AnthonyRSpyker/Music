@@ -1,89 +1,136 @@
-//added document ready call
+// 523532 Code for AD
 $(document).ready(function () {
   //hide the elements until they are populated.
-  $('.artist-cards').hide();
-  $('.lyrics-video-cards').hide();
-
-      //For use in the respective click events (This shows the cards that I hid at the beginning)
-    //   $('.artist-cards').hide();
-    //   $('.lyrics-video-cards').hide();
-
-  const button = $(".btn");
-  //id's for song and artist inputs
-  const artist = $("#artist_search");
-  const song = $("#song_search");
+  const button = $('.btn');
+  const artistSearch = $('#artist-search');
+  const song = $('#song_search');
   //id's for song and artist buttons
-  const songButton = $("#song-search-button");
-  const artistButton = $("#artist-search-button");
-  
+  const songButton = $('#song-search-button');
+  const artistButton = $('#artist-search-button');
+  //This put the click event in a function, located line 144. This puts the click event and lets everything load together
+  topSearch();
 
-  //generic search needs to be made dynamic
+  //This calls the getArtistBio() function when the History word is pressed
+  //  maybe want to change to bio.
+  // $("#show-history").on("click",function(artist){
 
-  var art = "steely dan";
-  var track = "dirty work";
-  var urlQuery = "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=" + track + "&q_artist=" + art + "&apikey=7f6c68b406143881580235194e8517a0"
+  //   $("artist-search").val();
 
-  
-  // function lyrics () {
-  //   $("#artist-search-button").on("click", function() {
-  //   var art = artist.val();
-  //   console.log(art)
-  //   //var track = song.val();
-  //   var urlQuery = "https://api.musixmatch.com/ws/1.1/artist.search?format=jsonp&callback=callback&q_artist=" + art + "&apikey=7f6c68b406143881580235194e8517a0" 
-  //   //"https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=" + track + "&q_artist=" + art + "&apikey=7f6c68b406143881580235194e8517a0"
+  //   getArtistBio(artist)
 
+  // });
 
+  //This calls the getArtistDiscography() function when the discography word is pressed
+  //  does not populate anything yet. only have the console.log.  will have to set up the
+  // functions so they erase what is in the box and repopulate.
 
-  //   $.ajax({
-  //       url: urlQuery,
-  //       dataType: "jsonp",
-  //       method: "GET"
-  //   })
+  // $("#show-all-albums").on("click",function(artist){
 
-  //   .then(function(artist){
-  //       console.log(artist);
-  //       //specific lyrics request, have to make the lyrics populate somewhere on page.
-  //       var lyrics = artist.message.body.lyrics.lyrics_body;
-  //       console.log(lyrics);
-  //       $("#lyrics-text").append(lyrics);
-  //   });
-    
-  //   //  .then(function(response){
-  //   //     console.log(response)
-  //   //     //specific lyrics request, have to make the lyrics populate somewhere on page.
+  //   $("artist-search").val();
 
-  //   //     var lyrics = response.message.body.lyrics.lyrics_body
-  //   //     console.log(lyrics)
-  //   //     var 
-  //   // })
-  //   });
-  // };
-  //       var songArtist = response.message.body.artist_list[0].artist.artist_name
-  //       console.log(songArtist)
-  //       $("#artist-name").text(songArtist);
-     
-  // 523532
-    // function getArtistDisco () {
-    //   $('#artist-search-button').click(function (event) {
-    //     event.preventDefault();
-    //     let artistDisco = $('#artist-search');   
-    //     let artistDiscoURL = 'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + artistDisco + '';
+  //   getArtistDiscography(artist);
+  // })
 
-    //     $.ajax({
-    //       url: artistDiscoURL,
-    //       method: 'GET',
-    //       dataType: 'JSON'
-          
-    //     }).then(function(Discography){
-    //       console.log(Discography);
+  //I dont think we need this function any more.
+  // function getArtist() {
+  //   $("#artist-search-button").on("click", function () {
 
-    //     });
-    //   });
-       
-    // };
-    // getArtistDisco();
+  //   $("#artist-search").val();
 
+  //   getArtistDiscography(artist);
+  // })
 
+  //I dont think we need this function any more.
+  // function getArtist() { //dont know if this still needs to be a function, but it populates the Artist Name Header
+  //   $("#artist-search-button").on("click", function () {
 
+  //     var art = artistSearch.val();
+  //     console.log(art)
+  //     $("#artist-name").text(art);
 
+  //    })
+  // }
+
+  getArtist();
+
+  //This gets the artists bio.  It populates all the info to the right.
+  function getArtistBio(artist) {
+    var art = artistSearch.val();
+    var query = 'https://theaudiodb.com/api/v1/json/523532/search.php?s=' + art;
+
+    $.ajax({
+      url: query,
+      method: 'GET',
+    }).then(function (bio) {
+      console.log(bio);
+      var biography = bio.artists[0].strBiographyEN;
+
+      $('.info-populate').text(bio.artists[0].strBiographyEN);
+      console.log(biography);
+      //shows artist name
+      $('#artist-name').text(bio.artists[0].strArtist);
+      //Artist Image in ID class
+      $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
+      //since the songs didn't pan out (audio DB dont have a list, decided to put the website in there. However it isn't working properly. I need to adjust and fix the HTML)
+      $('#show-artist-website').text(bio.artists[0].strWebsite);
+    });
+  }
+
+  //This will search for the discography.  This doesnt populate anything yet.
+  function getArtistDiscography(artist) {
+    var art = artistSearch.val();
+    var query =
+      'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + art;
+
+    $.ajax({
+      url: query,
+      method: 'GET',
+    }).then(function (disco) {
+      console.log(disco);
+      //I need help with this
+      //let AlbumPic = .attr('src', disco.album[i].strAlbumThumb);
+      // let albumPicArr = [];
+      // let nameAlbum = disco.album[i].strAlbum;
+      // let nameAlbumArr = [];
+      // let albumYear = disco.album[i].intYearReleased;
+      // let albumYearArr = [];
+
+      //this needs a for loop
+    });
+  }
+  //
+  function getLyrics() {
+    $('#song-search-button').on('click', function () {
+      var art = artistSearch.val();
+      var track = song.val();
+      var urlQuery =
+        'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=' +
+        track +
+        '&q_artist=' +
+        art +
+        '&apikey=dd295142dc943596fcd6ea11df080fb6';
+
+      $.ajax({
+        url: urlQuery,
+        dataType: 'jsonp',
+        method: 'GET',
+      }).then(function (artist) {
+        console.log(artist);
+        //specific lyrics request, have to make the lyrics populate somewhere on page.
+        var lyrics = artist.message.body.lyrics.lyrics_body;
+        console.log(lyrics);
+        $('#lyrics-text').text(lyrics);
+      });
+    });
+  }
+
+  function topSearch() {
+    //On Search, artist picture shows up and history shows up.
+    $('#artist-search-button').click(function () {
+      getArtistBio(), getArtistDiscography();
+    });
+    $('#song-search-button').click(function () {
+      getLyrics();
+    });
+  }
 });
