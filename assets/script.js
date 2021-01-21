@@ -114,6 +114,31 @@ $(document).ready(function () {
     });
   }
 
+  function lastFMtracks(){
+    var art = artistSearch.val();
+  
+    var query = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + art + "&api_key=86378c0c44efeb81ab024beb87162a1b&format=json"
+  
+    $.ajax({
+      url: query,
+      method: "GET"
+    })
+    .then(function(topTracks){
+      console.log(topTracks)
+      const trackPath = topTracks.toptracks.track
+  
+      for(var i=0; i < trackPath.length; i++){
+        let trackName = trackPath[i].name
+        let trackLink = trackPath[i].artist.url
+        console.log(trackName)
+        console.log(trackLink)
+          $(".top-songs-card").append("<li class = 'song'>" + trackName + "</li>");
+          //$(".top-songs-card").append("<div class = 'link'>" + trackLink + "</div>")
+      }
+      console.log(topTracks);
+    });
+  };
+  
   function topSearch() {
     //On Search, artist picture shows up and history shows up.
     $('#artist-search-button').click(function () {
