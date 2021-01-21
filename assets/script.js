@@ -76,7 +76,7 @@ $(document).ready(function () {
       //since the songs didn't pan out (audio DB dont have a list, decided to put the website in there. However it isn't working properly. I need to adjust and fix the HTML)
       $('#show-artist-website').text(bio.artists[0].strWebsite);
     });
-  }
+
 
   //This will search for the discography.  This doesnt populate anything yet.
   function getArtistDiscography(artist) {
