@@ -12,51 +12,11 @@ $(document).ready(function () {
   //This put the click event in a function, located line 144. This puts the click event and lets everything load together
   topSearch();
 
-  //This calls the getArtistBio() function when the History word is pressed
-  //  maybe want to change to bio.
-  // $("#show-history").on("click",function(artist){
-
-  //   $("artist-search").val();
-
-  //   getArtistBio(artist)
-
-  // });
-
-  //This calls the getArtistDiscography() function when the discography word is pressed
-  //  does not populate anything yet. only have the console.log.  will have to set up the
-  // functions so they erase what is in the box and repopulate.
-
-  // $("#show-all-albums").on("click",function(artist){
-
-  //   $("artist-search").val();
-
-  //   getArtistDiscography(artist);
-  // })
-
-  //I dont think we need this function any more.
-  // function getArtist() {
-  //   $("#artist-search-button").on("click", function () {
-
-  //   $("#artist-search").val();
-
-  //   getArtistDiscography(artist);
-  // })
-
-  //I dont think we need this function any more.
-  // function getArtist() { //dont know if this still needs to be a function, but it populates the Artist Name Header
-  //   $("#artist-search-button").on("click", function () {
-
-  //     var art = artistSearch.val();
-  //     console.log(art)
-  //     $("#artist-name").text(art);
-
-  //    })
-  // }
-
-  // getArtist();
+  
 
   //This gets the artists bio.  It populates all the info to the right.
   function getArtistBio(artist) {
+    
     var art = artistSearch.val();
     var query = 'https://theaudiodb.com/api/v1/json/523532/search.php?s=' + art;
 
@@ -77,9 +37,22 @@ $(document).ready(function () {
       $('#show-artist-website').text(bio.artists[0].strWebsite);
     });
 
+  $(".info-populate").empty(); // clears info box
+
+};
+
+
+
+
+
+
+
+  
+// c5558375f7530cd01ac8d1ed18a84f19535ba55f
 
   //This will search for the discography.  This doesnt populate anything yet.
   function getArtistDiscography(artist) {
+    $(".info-populate").html("");
     var art = artistSearch.val();
     var query =
       'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + art;
@@ -94,6 +67,9 @@ $(document).ready(function () {
         const element = disco.album[i];
         // console.log(element);
         let thumb = element.strAlbumThumb;
+        element.strAlbum;
+        element.intYearReleased;
+
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
         // if(element.strAlbumThumb == null) {
@@ -107,9 +83,7 @@ $(document).ready(function () {
       // <img src="htttp://img.jpg">
 
 
-        
-        
-      }
+    }
     });
   }
   //
@@ -143,8 +117,14 @@ $(document).ready(function () {
   function topSearch() {
     //On Search, artist picture shows up and history shows up.
     $('#artist-search-button').click(function () {
-      getArtistBio(), getArtistDiscography();
+      getArtistBio()
     });
+    $("#show-all-albums").on("click", function(){
+      getArtistDiscography();
+    })
+    $("#show-bio").on("click",function(){
+      getArtistBio();
+    })
     $('#song-search-button').click(function () {
       getLyrics();
     });
