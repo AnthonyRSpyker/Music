@@ -61,55 +61,51 @@ $(document).ready(function () {
       
       for (let i = 0; i < disco.album.length; i++) {
         const element = disco.album[i];
-        // console.log(element);
+        
         let thumb = element.strAlbumThumb;
         element.strAlbum;
         element.intYearReleased;
 
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
-        // if(element.strAlbumThumb == null) {
-          // set blank image
-        // }
+        
 
         $('.history-discography-songs-populate').prepend(
           '<img width="100px" height="100px" src ="' + thumb + '"> <p>' +
             albumName + '</p> <p>' + yearRel + '</p>'
         );
-      // <img src="htttp://img.jpg">
+      
 
 
     }
     });
   }
-  //
-  function getLyrics() {
-    $('#song-search-button').on('click', function () {
-      var art = artistSearch.val();
-      var track = song.val();
-      var urlQuery =
-        'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=' +
-        track +
-        '&q_artist=' +
-        art +
-        '&apikey=dd295142dc943596fcd6ea11df080fb6';
 
-      $.ajax({
-        url: urlQuery,
-        dataType: 'jsonp',
-        method: 'GET',
-      }).then(function (artist) {
-
-
-        console.log(artist);
-        //specific lyrics request, have to make the lyrics populate somewhere on page.
-        var lyrics = artist.message.body.lyrics.lyrics_body;
-        console.log(lyrics);
-        $('#lyrics-text').text(lyrics);
-      });
+  function lastFMtracks(){
+    var art = artistSearch.val();
+  
+    var query = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + art + "&api_key=86378c0c44efeb81ab024beb87162a1b&format=json"
+  
+    $.ajax({
+      url: query,
+      method: "GET"
+    })
+    .then(function(topTracks){
+      console.log(topTracks)
+      const trackPath = topTracks.toptracks.track
+  
+      for(var i=0; i < trackPath.length; i++){
+        let trackName = trackPath[i].name
+        let trackLink = trackPath[i].artist.url
+        console.log(trackName)
+        console.log(trackLink)
+          $(".top-songs-card").append("<li class = 'song'>" + trackName + "</li>");
+          //$(".top-songs-card").append("<div class = 'link'>" + trackLink + "</div>")
+      }
+      console.log(topTracks);
     });
-  }
-
+  };
+  
   function topSearch() {
     //On Search, artist picture shows up and history shows up.
     $('#artist-search-button').click(function () {
@@ -130,31 +126,35 @@ $(document).ready(function () {
   }
 
 
-function lastFMtracks(){
-  var art = artistSearch.val();
 
-  var query = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + art + "&api_key=86378c0c44efeb81ab024beb87162a1b&format=json"
-
-  $.ajax({
-    url: query,
-    method: "GET"
-  })
-  .then(function(topTracks){
-    console.log(topTracks)
-    const trackPath = topTracks.toptracks.track
-
-    for(var i=0; i < trackPath.length; i++){
-      let trackName = trackPath[i].name
-      let trackLink = trackPath[i].artist.url
-      console.log(trackName)
-      console.log(trackLink)
-        $(".top-songs-card").append("<li class = 'song'>" + trackName + "</li>");
-        //$(".top-songs-card").append("<div class = 'link'>" + trackLink + "</div>")
-    }
-    console.log(topTracks);
-  });
-};
 });
 
 //last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
 //last fm registered to antronrobotron
+//this may be hopeless 
+function getLyrics() {
+  $('#song-search-button').on('click', function () {
+    var art = artistSearch.val();
+    var track = song.val();
+    var urlQuery =
+      'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=' +
+      track +
+      '&q_artist=' +
+      art +
+      '&apikey=dd295142dc943596fcd6ea11df080fb6';
+
+    $.ajax({
+      url: urlQuery,
+      dataType: 'jsonp',
+      method: 'GET',
+    }).then(function (artist) {
+
+
+      console.log(artist);
+      //specific lyrics request, have to make the lyrics populate somewhere on page.
+      var lyrics = artist.message.body.lyrics.lyrics_body;
+      console.log(lyrics);
+      $('#lyrics-text').text(lyrics);
+    });
+  });
+}
