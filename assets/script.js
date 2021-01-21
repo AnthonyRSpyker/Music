@@ -108,6 +108,7 @@ $(document).ready(function () {
   
   function topSearch() {
     //On Search, artist picture shows up and history shows up.
+    
     $('#artist-search-button').click(function () {
       getArtistBio()
 
