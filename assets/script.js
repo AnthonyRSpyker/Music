@@ -27,31 +27,27 @@ $(document).ready(function () {
       console.log(bio);
       var biography = bio.artists[0].strBiographyEN;
 
-      $('.info-populate').text(bio.artists[0].strBiographyEN);
-      console.log(biography);
+      $('.history-discography-songs-populate').text(
+        bio.artists[0].strBiographyEN
+      );
       //shows artist name
       $('#artist-name').text(bio.artists[0].strArtist);
       //Artist Image in ID class
       $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
       //since the songs didn't pan out (audio DB dont have a list, decided to put the website in there. However it isn't working properly. I need to adjust and fix the HTML)
-      $('#show-artist-website').text(bio.artists[0].strWebsite);
+      $('#show-artist-website').text(bio.artists[0].strWebsite.outerText);
+      console.log(bio.artists[0].strWebsite);
     });
 
   $(".info-populate").empty(); // clears info box
 
 };
 
-
-
-
-
-
-
-  
 // c5558375f7530cd01ac8d1ed18a84f19535ba55f
 
   //This will search for the discography.  This doesnt populate anything yet.
   function getArtistDiscography(artist) {
+    
     $(".info-populate").html("");
     var art = artistSearch.val();
     var query =
@@ -76,8 +72,8 @@ $(document).ready(function () {
           // set blank image
         // }
 
-        $('.history-discography-songs-populate').append(
-          '<img width="50px" height="50px" src ="' + thumb + '"> <p>' +
+        $('.history-discography-songs-populate').prepend(
+          '<img width="100px" height="100px" src ="' + thumb + '"> <p>' +
             albumName + '</p> <p>' + yearRel + '</p>'
         );
       // <img src="htttp://img.jpg">
@@ -118,7 +114,9 @@ $(document).ready(function () {
     //On Search, artist picture shows up and history shows up.
     $('#artist-search-button').click(function () {
       getArtistBio()
+
       lastFMtracks()
+
     });
     $("#show-all-albums").on("click", function(){
       getArtistDiscography();
