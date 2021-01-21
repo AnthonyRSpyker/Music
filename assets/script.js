@@ -67,14 +67,11 @@ $(document).ready(function () {
         const element = disco.album[i];
         // console.log(element);
         let thumb = element.strAlbumThumb;
-<<<<<<< HEAD
         element.strAlbum;
         element.intYearReleased;
 
-=======
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
->>>>>>> f78ccf276c3e545a9a466926178f46a5301e54fb
         // if(element.strAlbumThumb == null) {
           // set blank image
         // }
