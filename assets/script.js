@@ -118,6 +118,7 @@ $(document).ready(function () {
     //On Search, artist picture shows up and history shows up.
     $('#artist-search-button').click(function () {
       getArtistBio()
+      lastFMtracks()
     });
     $("#show-all-albums").on("click", function(){
       getArtistDiscography();
@@ -129,4 +130,33 @@ $(document).ready(function () {
       getLyrics();
     });
   }
+
+
+function lastFMtracks(){
+  var art = artistSearch.val();
+
+  var query = "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + art + "&api_key=86378c0c44efeb81ab024beb87162a1b&format=json"
+
+  $.ajax({
+    url: query,
+    method: "GET"
+  })
+  .then(function(topTracks){
+    console.log(topTracks)
+    const trackPath = topTracks.toptracks.track
+
+    for(var i=0; i < trackPath.length; i++){
+      let trackName = trackPath[i].name
+      let trackLink = trackPath[i].artist.url
+      console.log(trackName)
+      console.log(trackLink)
+        $(".top-songs-card").append("<li class = 'song'>" + trackName + "</li>");
+        //$(".top-songs-card").append("<div class = 'link'>" + trackLink + "</div>")
+    }
+    console.log(topTracks);
+  });
+};
 });
+
+//last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
+//last fm registered to antronrobotron
