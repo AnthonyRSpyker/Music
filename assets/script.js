@@ -35,8 +35,9 @@ $(document).ready(function () {
       //Artist Image in ID class
       $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
       //since the songs didn't pan out (audio DB dont have a list, decided to put the website in there. However it isn't working properly. I need to adjust and fix the HTML)
-      $('#show-artist-website').text(bio.artists[0].strWebsite.outerText);
-      console.log(bio.artists[0].strWebsite);
+      
+      $('#show-artist-website').attr('href', 'http://' + bio.artists[0].strWebsite);
+      
     });
 
   $(".info-populate").empty(); // clears info box
