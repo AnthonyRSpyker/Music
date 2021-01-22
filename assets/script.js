@@ -205,6 +205,7 @@ $(document).ready(function () {
       art +
       '&api_key=86378c0c44efeb81ab024beb87162a1b&format=json';
 
+
     $.ajax({
       url: query,
       method: 'GET',
@@ -229,7 +230,45 @@ $(document).ready(function () {
   //last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
   // last fm registered to antronrobotron
 
+
+    for(var i=0; i < trackPath.length; i++){
+      let trackName = trackPath[i].name
+      let trackLink = trackPath[i].artist.url
+      console.log(trackName)
+      console.log(trackLink)
+        $(".top-songs-card").append("<li class = 'song'>" + trackName + "</li>");
+        console.log(topTracks);
+        //$(".top-songs-card").append("<div class = 'link'>" + trackLink + "</div>")
+        $(".song").on("click", function(){ //on click, of song, will give track name (as a test) will probably have to use foreach method
+            
+          var test=trackName;
+          console.log(test)});
+
+        var songName = trackName;
+        var queryUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=" + songName + "&videoEmbeddable=any&key=AIzaSyBNhOarkazaM-HMev-Dj-oa3IuWr5dzItU"; 
+
+        $.ajax({ // this is a call to get videoif from the trackName from the audiodb API, from the Youtube API
+          url: queryUrl,
+          method: "GET"
+        })
+          .then(function (response) {
+            console.log(response)
+            var idVideo = response.items[0].id.videoId
+            console.log(idVideo)
+
+            var videoAtt="http://www.youtube.com/embed/" +idVideo+ "?enablejsapi=1&origin=http://example.com"; // this is the video url for each individual id maybe another for each needed
+
+            $("#player").attr('src',videoAtt); // should attached the src attribute to the youtube player and play video. again will need possible for each statement
+
+            
+          });
+      }
+    });
+    
+  };
+
 });
+
 
 //last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
 //last fm registered to antronrobotron
