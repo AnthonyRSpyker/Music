@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   //hide the elements until they are populated.
 
@@ -25,12 +24,14 @@ $(document).ready(function () {
 
 
 
+
       $('.history-discography-songs-populate').text(bio.artists[0].strBiographyEN);
 
       //shows artist name
       $('#artist-name').text(bio.artists[0].strArtist);
       //Artist Image in ID class
       $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
+
 
 
 

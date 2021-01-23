@@ -7,6 +7,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Courier New', Courier, monospace
 }
 
 .artist-info {
@@ -15,7 +16,7 @@ body{
     overflow: auto;
     text-align: center;
     font-weight: bold;
-    opacity: 50%;
+    /* opacity: 50%; */
     background-image:linear-gradient(90deg, #2971a8,  rgb(80, 75, 75));
     border-radius: 10%;
     color: white
@@ -25,7 +26,7 @@ body{
     /* border: solid red 1px; */
     height: 325px;
     overflow: auto;
-    opacity: 50%;
+    /* opacity: 50%; */
     background-image:linear-gradient(90deg, rgb(80, 75, 75),  #2971a8);
     border-radius: 10%;
     padding: 20px;
@@ -48,6 +49,12 @@ body{
     overflow: auto;
     padding:20px;
     color: white;
+    cursor: pointer;
+    background-image:linear-gradient(90deg, #2971a8,  rgb(80, 75, 75));
+    border-radius: 15%;
+    text-align: center;
+    list-style: none;
+    
 }
 
 .video-card {
@@ -104,8 +111,24 @@ body{
     border-radius: 10%;
     font-size: 40px;
     outline: none;
-    border: none;}
-    
+    border: none;
+}
 
+#search-icon {
+    cursor: pointer;
+}
 
+#main-title {
+    font-size: 56px;
+    font-weight: bold;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+}
 
+a:link {
+    color:white;
+}
+
+a:visited {
+    color:white;
+}
