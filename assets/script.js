@@ -1,140 +1,188 @@
-// 523532 Code for AD
 $(document).ready(function () {
   //hide the elements until they are populated.
-const button = $(".btn");
-const artistSearch = $("#artist-search");
-const song = $("#song_search");
-//id's for song and artist buttons
-const songButton = $("#song-search-button");
-const artistButton = $("#artist-search-button");
-//This put the click event in a function, located line 144. This puts the click event and lets everything load together
-topSearch();
 
-//This calls the getArtistBio() function when the History word is pressed
-//  maybe want to change to bio.
-// $("#show-history").on("click",function(artist){
-  
-//   $("artist-search").val();
-  
-//   getArtistBio(artist)
-
-// });
+  const artistSearch = $('#artist-search');
 
 
-//This calls the getArtistDiscography() function when the discography word is pressed
-//  does not populate anything yet. only have the console.log.  will have to set up the
-// functions so they erase what is in the box and repopulate.
-
-// $("#show-all-albums").on("click",function(artist){
-  
-//   $("artist-search").val();
-
-//   getArtistDiscography(artist);
-// })
-
-//I dont think we need this function any more.  
-// function getArtist() {
-//   $("#artist-search-button").on("click", function () {
-
-//   $("#artist-search").val();
 
 
-//   getArtistDiscography(artist);
-// })
 
-//I dont think we need this function any more.  
-// function getArtist() { //dont know if this still needs to be a function, but it populates the Artist Name Header
-//   $("#artist-search-button").on("click", function () {
+  //This put the click event in a function, located line 144. This puts the click event and lets everything load together
+  topSearch();
 
 
-//     var art = artistSearch.val();
-//     console.log(art)
-//     $("#artist-name").text(art);
 
-      
-
-
-//    })
-// }
-
-getArtist();
-
-//This gets the artists bio.  It populates all the info to the right.
-function getArtistBio(artist){
-  
- var art = artistSearch.val();
-  var query = "https://theaudiodb.com/api/v1/json/523532/search.php?s=" + art;
-
-  $.ajax({
-    url: query,
-    method: "GET"
-  })
-  .then(function(bio){
-    console.log(bio);
-    var biography = bio.artists[0].strBiographyEN
-    
-     $(".info-populate").text(bio.artists[0].strBiographyEN)
-    console.log(biography);
-    //shows artist name 
-    $('#artist-name').text(bio.artists[0].strArtist);
-    //Artist Image in ID class
-    $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
-    //since the songs didn't pan out (audio DB dont have a list, decided to put the website in there. However it isn't working properly. I need to adjust and fix the HTML)
-    $('#show-artist-website').text(bio.artists[0].strWebsite);
-   
-  });
-
-};
-
-//This will search for the discography.  This doesnt populate anything yet.
-  function getArtistDiscography(artist){
-
+  //This gets the artists bio.  It populates all the info to the right.
+  function getArtistBio(artist) {
     var art = artistSearch.val();
-    var query = 'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + art;
-        
+    var query = 'https://theaudiodb.com/api/v1/json/523532/search.php?s=' + art;
+
     $.ajax({
       url: query,
-      method: "GET"
-    })
-    .then(function(disco){
-        console.log(disco);
-    //I need help with this
-        //let AlbumPic = .attr('src', disco.album[i].strAlbumThumb);
-        // let albumPicArr = [];
-        // let nameAlbum = disco.album[i].strAlbum;
-        // let nameAlbumArr = [];
-        // let albumYear = disco.album[i].intYearReleased;
-        // let albumYearArr = [];
-        
-        //this needs a for loop
+      method: 'GET',
+    }).then(function (bio) {
+
+
+
+
+      $('.history-discography-songs-populate').text(bio.artists[0].strBiographyEN);
+
+      //shows artist name
+      $('#artist-name').text(bio.artists[0].strArtist);
+      //Artist Image in ID class
+      $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
+
+//   getArtistDiscography(artist);
+// })
+
+
+      $('#show-artist-website').attr(
+        'href',
+        'http://' + bio.artists[0].strWebsite
+      );
+      $('.show-artist-web-name').text(bio.artists[0].strWebsite);
     });
+  }
+
+
+
+
+  //This will search for the discography.  
+  function getArtistDiscography(artist) {
+
+    $('.history-discography-songs-populate').empty();
+
+    var art = artistSearch.val();
+    var query =
+      'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + art;
+
+    $.ajax({
+      url: query,
+      method: 'GET',
+    }).then(function (disco) {
+      console.log(disco);
+
+      for (let i = 0; i < disco.album.length; i++) {
+        const element = disco.album[i];
+        // console.log(element);
+        let thumb = element.strAlbumThumb;
+        let albumName = element.strAlbum;
+        let yearRel = element.intYearReleased;
+
+
+
+        $('.history-discography-songs-populate').append(
+          '<div class="row"><img id="album-art-thumb" width="150px" height="150px" src="' +
+          thumb + '" /> <span id="disc-text">' + albumName + '&nbsp' + yearRel + '</span></div>');
+
+
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+  function topSearch() {
+    //On Search, artist picture shows up and history shows up.
+
+    $('#search-icon').click(function () {
+      console.log("is working?")
+
+      getArtistBio()
+      lastFMtracks()
+    });
+
+    $('input').keyup(function (event) {
+      if (event.which == 13) {
+        getArtistBio(),
+          lastFMtracks();
+      };
+
+    });
+    $('#show-all-albums').on('click', function () {
+      getArtistDiscography();
+    });
+    $('#show-bio').on('click', function () {
+      getArtistBio();
+    });
+
   };
-//
-function getLyrics() {
-  $("#song-search-button").on("click", function () {
-      var art = artistSearch.val();
-      var track = song.val();
-      var urlQuery =
-        'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track=' +
-        track +
-        '&q_artist=' +
-        art +
-        '&apikey=dd295142dc943596fcd6ea11df080fb6';
 
-      $.ajax({
-          url: urlQuery,
-          dataType: "jsonp",
-          method: "GET"
-      }).then(function (artist) {
-              console.log(artist);
-              //specific lyrics request, have to make the lyrics populate somewhere on page.
-              var lyrics = artist.message.body.lyrics.lyrics_body;
-              console.log(lyrics);
-              $("#lyrics-text").text(lyrics);
 
+
+  function lastFMtracks() {
+    $('.top-songs-card').empty()
+    var art = artistSearch.val();
+
+    var query =
+      'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' +
+      art +
+      '&api_key=86378c0c44efeb81ab024beb87162a1b&format=json';
+
+
+    $.ajax({
+      url: query,
+      method: 'GET',
+    }).then(function (topTracks) {
+      console.log(topTracks);
+      const trackPath = topTracks.toptracks.track;
+
+      for (var i = 0; i < trackPath.length; i++) {
+        let trackName = trackPath[i].name;
+        let trackLink = trackPath[i].artist.url;
+        console.log(trackName)
+        console.log(trackLink)
+        $('.top-songs-card').append(
+          "<li class = 'song'>" + trackName + '</li>'
+        );
+
+      }
+      console.log(topTracks);
+    });
+
+
+
+    $(".top-songs-card").on("click", "li", function () {
+      var songTitle = $(this).text()
+
+      youtubeCall(songTitle)
+
+      console.log(songTitle)
+
+    });
+
+
+
+    function youtubeCall(songTitle) {
+
+      var songName = songTitle;
+      var queryUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=" + songName + "&videoEmbeddable=any&key=AIzaSyBNhOarkazaM-HMev-Dj-oa3IuWr5dzItU";
+
+      $.ajax({ // this is a call to get videoif from the trackName from the audiodb API, from the Youtube API
+        url: queryUrl,
+        method: "GET"
       })
+        .then(function (response) {
+          console.log(response)
+          var idVideo = response.items[0].id.videoId
+          console.log(idVideo)
 
-})}
+          var videoAtt = "http://www.youtube.com/embed/" + idVideo + "?enablejsapi=1&origin=http://example.com"; // this is the video url for each individual id maybe another for each needed
+
+          $("#player").attr('src', videoAtt); // should attached the src attribute to the youtube player and play video. again will need possible for each statement
+
+
+        });
+    };
+  };
+});
+
+
 
 
 function topSearch() {

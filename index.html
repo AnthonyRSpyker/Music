@@ -22,13 +22,11 @@
             </div>
         </div>
     </div>
-    <Div class="row search-1">
-        <div class="input-field col s4">
-            <input placeholder="Search for your favorite artist" id="artist-search" type="text" class="validate">
-            </input>
-        </div>
-        <button id="artist-search-button" class="btn waves-effect waves-light" type="submit" name="action">Search</i>
-        </button>
+    <Div align="center" class="row search-1">
+        <form class="search-container">
+            <input placeholder="Search for your favorite artist" id="artist-search" type="text" class="input">
+            <button id="artist-search-button" type="submit" class="button" name="action"><i id="search-icon" class="fa fa-search"></i></button>
+        </form>
     </Div>
 
     <!--Scrollable Divs!-->
@@ -36,47 +34,53 @@
         <div class="col s4">
             <div class="artist-info">
                 <h4 id="artist-name">Artist Name</h4>
+<<<<<<< HEAD
                     <img id="artist-pic"></img>
                     <h6 id="show-all-albums"><a href="#">Discography</h6></a>
                     <!-- Cancelled the songs link. There was nothing in audio db to get all the songs -->
                     <!-- <h6 id="show-all-songs"><a href="#">Songs</h6></a> -->
                     <h6 id="show-artist-website"><a id="show-artist-website" href=>Artist Website</h6></a>
+=======
+
+                <img id="artist-pic"></img>
+                <h6 id="show-all-albums"><a href="#">Discography</h6></a>
+                <h6 id="show-bio"><a href="#">Biography</h6></a>
+                <!-- Cancelled the songs link. There was nothing in audio db to get all the songs -->
+                <!-- <h6 id="show-all-songs"><a href="#">Songs</h6></a> -->
+                <h6><a href id="show-artist-website" class="show-artist-web-name">Artist Website</h6></a>
+>>>>>>> 50292258cb1eef3efef56672b0b7bc69996a36c9
             </div>
         </div>
 
         <div class="col s8">
-                <div class="history-discography-songs-populate">
-                <h6 class="info-populate"></h6>   
-                </div>
-            
+            <div class="history-discography-songs-populate">
+            </div>
+
         </div>
     </div>
 
-    <div class="row search-2">
-        <div class="input-field col s4">
-            <input placeholder="Search for song lyrics and view the video!" id="song_search" type="text"
-                class="validate">
-            </input>
-        </div>
-        <button id="song-search-button" class="btn waves-effect waves-light" type="submit" name="action">Search</i>
-    </div>
-    
     <div class="row">
         <div class="col s6">
+<<<<<<< HEAD
             <div class="lyrics-card">
                 <span class="card-title">Lyrics would populate here</span>
                 <p id="lyrics-text"></p>
+=======
+            <div class="top-songs-card">
+                
+>>>>>>> 50292258cb1eef3efef56672b0b7bc69996a36c9
             </div>
         </div>
 
         <div class="col s6">
-                <div class="video-card">
-                    <span class="card-title">Youtube Video would populate here</span>
-                </div>
+            <div class="video-card">
+                <iframe id="player" type="text/html" width="640" height="390" frameborder="0"></iframe>  <!--This is the embeded youtube videoplayer. It is missing the src attr that would play the acutal video. SRC is defined in the JS-->
+                <span class="card-title">Youtube Video would populate here</span>
             </div>
         </div>
     </div>
-    
+    </div>
+
 
     <script src="assets\script.js"></script>
 </body>
