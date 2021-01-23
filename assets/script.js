@@ -26,7 +26,7 @@ $(document).ready(function () {
       var biography = bio.artists[0].strBiographyEN;
 
       $('.history-discography-songs-populate').text(bio.artists[0].strBiographyEN);
-      console.log(biography);
+      // console.log(biography);
       //shows artist name
       $('#artist-name').text(bio.artists[0].strArtist);
       //Artist Image in ID class
@@ -43,7 +43,7 @@ $(document).ready(function () {
   }
 
   
-// c5558375f7530cd01ac8d1ed18a84f19535ba55f
+  // c5558375f7530cd01ac8d1ed18a84f19535ba55f
 
   //This will search for the discography.  This doesnt populate anything yet.
   function getArtistDiscography(artist) {
@@ -64,11 +64,9 @@ $(document).ready(function () {
         const element = disco.album[i];
         // console.log(element);
         let thumb = element.strAlbumThumb;
-        element.strAlbum;
-        element.intYearReleased;
-
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
+        
 
 
         $('.history-discography-songs-populate').append(
@@ -139,16 +137,11 @@ $(document).ready(function () {
           // set blank image
         // }
 
-        $('.history-discography-songs-populate').append(
-          '<img width="50px" height="50px" src ="' + thumb + '"> <p>' +
-            albumName + '</p> <p>' + yearRel + '</p>'
-        );
-      // <img src="htttp://img.jpg">
+     
 
 
-    }
-    });
-  }
+   
+
   //
   function getLyrics() {
     $('#song-search-button').on('click', function () {
@@ -185,6 +178,14 @@ $(document).ready(function () {
       getArtistBio()
       lastFMtracks()
     });
+    
+    $('input').keyup(function (event) {
+      if (event.which == 13) {
+        getArtistBio(), 
+        lastFMtracks();
+      };
+      
+    // });
     $('#show-all-albums').on('click', function () {
       getArtistDiscography();
     });
@@ -193,7 +194,7 @@ $(document).ready(function () {
     });
     // $('#song-search-button').click(function () {
     //   getLyrics();
-  };
+  });
   
 
 
@@ -225,13 +226,13 @@ $(document).ready(function () {
       }
       console.log(topTracks);
     });
-  }
+  
 
-  //last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
-  // last fm registered to antronrobotron
+      //last fm shared secret api key 29c7614d34da73bd172e87b84fe0e276
+      // last fm registered to antronrobotron
 
 
-    for(var i=0; i < trackPath.length; i++){
+    for(var i = 0; i < trackPath.length; i++){
       let trackName = trackPath[i].name
       let trackLink = trackPath[i].artist.url
       console.log(trackName)
@@ -262,10 +263,10 @@ $(document).ready(function () {
 
             
           });
-      }
-    });
-    
+      };
   };
+  };
+
 
 });
 
