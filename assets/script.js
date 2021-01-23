@@ -66,6 +66,7 @@ $(document).ready(function () {
         let thumb = element.strAlbumThumb;
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
+        
 
 
         $('.history-discography-songs-populate').append(
@@ -177,6 +178,13 @@ $(document).ready(function () {
       getArtistBio()
       lastFMtracks()
     });
+    
+    // $('input').keypress(function (event) {
+    //   if (event.which == 13) {
+    //     $('#artist-search-button').submit();
+    //   };
+      
+    // });
     $('#show-all-albums').on('click', function () {
       getArtistDiscography();
     });
