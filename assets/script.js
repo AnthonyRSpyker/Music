@@ -32,8 +32,7 @@ $(document).ready(function () {
       //Artist Image in ID class
       $('#artist-pic').attr('src', bio.artists[0].strArtistThumb);
 
-//   getArtistDiscography(artist);
-// })
+
 
 
       $('#show-artist-website').attr(
@@ -185,11 +184,3 @@ $(document).ready(function () {
 
 
 
-function topSearch() {
-  //On Search, artist picture shows up and history shows up.
-  $('#artist-search-button').click(function () {getArtistBio(), getArtistDiscography()});
-  $('#song-search-button').click(function () {getLyrics()});
-
-  
-};
-});
