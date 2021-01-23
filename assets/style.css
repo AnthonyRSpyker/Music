@@ -14,6 +14,7 @@ body{
     height: 325px;
     overflow: auto;
     text-align: center;
+    font-weight: bold;
     opacity: 50%;
     background-image:linear-gradient(90deg, #2971a8,  rgb(80, 75, 75));
     border-radius: 10%;
@@ -21,7 +22,7 @@ body{
 }
 
 .history-discography-songs-populate {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     height: 325px;
     overflow: auto;
     opacity: 50%;
@@ -29,6 +30,7 @@ body{
     border-radius: 10%;
     padding: 20px;
     color: white;
+    
     
 } 
 
@@ -40,14 +42,14 @@ body{
 }
 
 #disc-text {
-    font-size: 32px;
+    font-size: 18px;
     
      
 } 
   
 
 .search-1 {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     border-left: 50%;
     margin: -35px 5px 0px 5px;
 
@@ -56,12 +58,12 @@ body{
 
 }
 .search-2 {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     margin: -18px 5px 0px 5px;
 }
 
 .top-songs-card {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     height: 325px;
     overflow: auto;
     padding:20px;
@@ -69,7 +71,7 @@ body{
 }
 
 .video-card {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     height: 325px;
     overflow: auto;
 }
