@@ -43,7 +43,7 @@ $(document).ready(function () {
   }
 
   
-// c5558375f7530cd01ac8d1ed18a84f19535ba55f
+  // c5558375f7530cd01ac8d1ed18a84f19535ba55f
 
   //This will search for the discography.  This doesnt populate anything yet.
   function getArtistDiscography(artist) {
@@ -179,10 +179,11 @@ $(document).ready(function () {
       lastFMtracks()
     });
     
-    // $('input').keypress(function (event) {
-    //   if (event.which == 13) {
-    //     $('#artist-search-button').submit();
-    //   };
+    $('input').keyup(function (event) {
+      if (event.which == 13) {
+        getArtistBio(), 
+        lastFMtracks();
+      };
       
     // });
     $('#show-all-albums').on('click', function () {
@@ -193,7 +194,7 @@ $(document).ready(function () {
     });
     // $('#song-search-button').click(function () {
     //   getLyrics();
-  };
+  });
   
 
 
@@ -263,7 +264,8 @@ $(document).ready(function () {
             
           });
       };
-   };
+  };
+  };
 
 
 });
