@@ -8,12 +8,12 @@ $(document).ready(function () {
 
 
   //This put the click event in a function, located line 144. This puts the click event and lets everything load together
-  topSearch();
+  // topSearch();
 
 
 
   //This gets the artists bio.  It populates all the info to the right.
-  function getArtistBio(artist) {
+  function getArtistBio() {
     var art = artistSearch.val();
     var query = 'https://theaudiodb.com/api/v1/json/523532/search.php?s=' + art;
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
       url: query,
       method: 'GET',
     }).then(function (bio) {
-
+        console.log(bio)
 
 
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
       for (let i = 0; i < disco.album.length; i++) {
         const element = disco.album[i];
-        // console.log(element);
+        
         let thumb = element.strAlbumThumb;
         let albumName = element.strAlbum;
         let yearRel = element.intYearReleased;
@@ -86,31 +86,32 @@ $(document).ready(function () {
 
 
 
-  function topSearch() {
+  // function topSearch() {
     //On Search, artist picture shows up and history shows up.
 
-    $('#search-icon').click(function () {
-      console.log("is working?")
-
-      getArtistBio()
-      lastFMtracks()
+    $('#search-icon').on("click",function (event) {
+      event.preventDefault();
+            getArtistBio();
+            lastFMtracks();
+      
     });
 
-    $('input').keyup(function (event) {
-      if (event.which == 13) {
-        getArtistBio(),
-          lastFMtracks();
-      };
-
-    });
+    
     $('#show-all-albums').on('click', function () {
       getArtistDiscography();
     });
+    
     $('#show-bio').on('click', function () {
       getArtistBio();
     });
-
-  };
+    
+    $('input').keyup(function (event) {
+      if (event.which == 13) {
+        getArtistBio(),
+        lastFMtracks();
+      };
+    });
+  // };
 
 
 
@@ -128,20 +129,19 @@ $(document).ready(function () {
       url: query,
       method: 'GET',
     }).then(function (topTracks) {
-      console.log(topTracks);
+     
       const trackPath = topTracks.toptracks.track;
 
       for (var i = 0; i < trackPath.length; i++) {
         let trackName = trackPath[i].name;
-        let trackLink = trackPath[i].artist.url;
-        console.log(trackName)
-        console.log(trackLink)
+        
+        
         $('.top-songs-card').append(
           "<li class = 'song'>" + trackName + '</li>'
         );
 
       }
-      console.log(topTracks);
+  
     });
 
 
@@ -151,7 +151,7 @@ $(document).ready(function () {
 
       youtubeCall(songTitle)
 
-      console.log(songTitle)
+      
 
     });
 
@@ -167,9 +167,9 @@ $(document).ready(function () {
         method: "GET"
       })
         .then(function (response) {
-          console.log(response)
+          
           var idVideo = response.items[0].id.videoId
-          console.log(idVideo)
+          
 
           var videoAtt = "http://www.youtube.com/embed/" + idVideo + "?enablejsapi=1&origin=http://example.com"; // this is the video url for each individual id maybe another for each needed
 
