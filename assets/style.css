@@ -14,7 +14,7 @@ body{
     height: 325px;
     overflow: auto;
     text-align: center;
-    opacity: 50%;
+    opacity: 100%;
     background-image:linear-gradient(90deg, #2971a8,  rgb(80, 75, 75));
     border-radius: 10%;
     color: white
