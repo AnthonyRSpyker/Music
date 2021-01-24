@@ -1,44 +1,130 @@
 .card-image {
-    margin: -10px -10px -10px -10px
+  margin: -10px -10px -10px -10px;
 }
+
+body {
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20191029/pngtree-blue-lighting-3d-concert-stage-podium-spotlight-vector-background-design-image_320475.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .artist-info {
-    border: solid red 1px;
-    height: 325px;
-    overflow: auto;
-    text-align: center;
+  height: 325px;
+  overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  /* opacity: 50%; */
+  background-image: linear-gradient(90deg, #2971a8, rgb(80, 75, 75));
+  border-radius: 10%;
+  color: white;
 }
 
 .history-discography-songs-populate {
-    border: solid red 1px;
-    height: 325px;
-    overflow: auto;
-}
-.search-1 {
-    border: solid red 1px;
-    margin: -35px 5px 0px 5px;
-
-}
-.search-2 {
-    border: solid red 1px;
-    margin: -18px 5px 0px 5px;
+  /* border: solid red 1px; */
+  height: 325px;
+  overflow: auto;
+  /* opacity: 50%; */
+  background-image: linear-gradient(90deg, rgb(80, 75, 75), #2971a8);
+  border-radius: 10%;
+  padding: 20px;
+  color: white;
 }
 
-.lyrics-card {
-    border: solid red 1px;
-    height: 325px;
-    overflow: auto;
+.album-art-thumb {
+  vertical-align: middle;
+  margin: 25px;
+}
+
+.top-songs-card {
+  /* border: solid red 1px; */
+  height: 325px;
+  overflow: auto;
+  padding: 20px;
+  color: white;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #2971a8, rgb(80, 75, 75));
+  border-radius: 15%;
+  text-align: center;
+  list-style: none;
 }
 
 .video-card {
-    border: solid red 1px;
-    height: 325px;
-    overflow: auto;
+  /* border: solid red 1px; */
+  height: 325px;
+  overflow: hidden;
 }
 
 #artist-pic {
-   max-width: 150px;
-   max-height: 150px;
-   align-content: center;
-
+  max-width: 150px;
+  max-height: 150px;
+  align-content: center;
 }
 
+/* Search Box */
+
+.search-container {
+  width: 40%;
+  height: 50px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px blue;
+  position: relative;
+  margin: 0px;
+  background-image: linear-gradient(90deg, rgb(80, 75, 75), #2971a8);
+}
+*/ .input {
+  width: 100%;
+  height: 40px;
+  display: block;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-size: 30px;
+  outline: none;
+  border: none;
+  opacity: 50%;
+}
+
+.button {
+  position: absolute;
+  right: -5px;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(90deg, blue, black);
+  color: white;
+  border-radius: 10%;
+  font-size: 40px;
+  outline: none;
+  border: none;
+}
+
+#search-icon {
+  cursor: pointer;
+}
+
+#main-title {
+  font-size: 56px;
+  font-weight: bold;
+  color: red;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+#artist-search {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#jumbotron {
+  height: 150px;
+}
