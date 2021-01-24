@@ -55,7 +55,9 @@ $(document).ready(function () {
     $(".info-populate").html("");
     var art = artistSearch.val();
     var query =
-      'https://theaudiodb.com/api/v1/json/523532/searchalbum.php?s=' + art;
+      'https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' +
+      art +
+      '&api_key=86378c0c44efeb81ab024beb87162a1b&format=json';
 
     $.ajax({
       url: query,
