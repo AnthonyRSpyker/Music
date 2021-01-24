@@ -116,9 +116,9 @@ $(document).ready(function () {
         var idVideo = response.items[0].id.videoId;
 
         var videoAtt =
-          'http://www.youtube.com/embed/' +
+          'https://www.youtube.com/embed/' +
           idVideo +
-          '?enablejsapi=1&origin=http://example.com'; // this is the video url for each individual id maybe another for each needed
+          '?enablejsapi=1&origin=https://example.com'; // this is the video url for each individual id maybe another for each needed
 
         $('#player').attr('src', videoAtt); // should attached the src attribute to the youtube player and play video. again will need possible for each statement
       });
