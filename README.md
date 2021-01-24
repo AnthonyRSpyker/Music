@@ -2,7 +2,7 @@
     
 **This site is an artist and music website. It has the capability to fetch the artist's or group's history, discography, top songs, and the the ability to view the music videos for those top songs via Youtube.  This site is a fully interactive web application supported by JQuery and Materialize. The API data fetched is provided by AudioDB, last FM and YouTube. The user is also provided with local browser storage that saves the most recent searches they have made.**
 
-    Link to page:  https://anthonyrspyker.github.io/Music/
+**Link to page:  https://anthonyrspyker.github.io/Music/**
     
     
 ___
