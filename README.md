@@ -1,8 +1,8 @@
-# Project One- Music Artist Page
+## Music Artist Page - "That's My Jam"
     
-    This site is an artist and music website. It has the capability to fetch the artist's or group's history, discography, top songs, and the the ability to view the music videos for those top songs via Youtube.
+    **This site is an artist and music website. It has the capability to fetch the artist's or group's history, discography, top songs, and the the ability to view the music videos for those top songs via Youtube.  This site is a fully interactive web application supported by JQuery and Materialize. The API data fetched is provided by AudioDB, last FM and YouTube. The user is also provided with local browser storage that saves the most recent searches they have made.**
 
-    [Artist & Music]()
+    Link to page:  https://anthonyrspyker.github.io/Music/
     
     
 ___
@@ -35,6 +35,14 @@ ___
 **Finally, when a user clicks on a song they want to view, the YouTube video for that song will appear to the right**. 
 
 **It can play on the website or link outside the website to Youtube**.
+
+
+## Moving Forward
+
+**In the future we would like to see that the web application has the ability to play the youtube videos directly on the site apposed to being forced to link to Youtube.**
+**Furthermore, we would like to see that application has a karaoke option which would search the song on Youtube, but specifically seak out videos that have the lyrics on the screen as the music plays.**
+**Along with that, we would like to see that there be an option to just populate the lyrics to individual songs on the screen.**  
+**Withstanding the issue of monetary incurment, there is nothing blocking these goals to be implemented in the next iteration.**
 
 ___
 
