@@ -76,7 +76,7 @@ $(document).ready(function () {
     // var art = artistSearch.val();
 
     var query =
-      'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' +
+      'https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=' +
       art +
       '&api_key=86378c0c44efeb81ab024beb87162a1b&format=json';
 
